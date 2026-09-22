@@ -1,0 +1,60 @@
+---
+---
+
+<header
+  id="site-header"
+  class="sticky top-0 z-50 bg-sand/95 backdrop-blur-sm border-b border-line py-7 transition-transform duration-300"
+>
+  <div class="mx-auto max-w-[1120px] px-8 flex justify-between items-center">
+    <div class="flex items-center gap-3">
+      <svg width="34" height="34" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" class="shrink-0">
+        <line x1="20" y1="20" x2="20" y2="7" stroke="#1C2321" stroke-width="1.6" />
+        <line x1="20" y1="20" x2="8" y2="31" stroke="#1C2321" stroke-width="1.6" />
+        <line x1="20" y1="20" x2="32" y2="31" stroke="#1C2321" stroke-width="1.6" />
+        <circle cx="20" cy="20" r="5" fill="#1C2321" />
+        <circle cx="20" cy="7" r="4.5" fill="#2F6F5E" />
+        <circle cx="8" cy="31" r="4.5" fill="#B8912B" />
+        <circle cx="32" cy="31" r="4.5" fill="#2B5C7A" />
+      </svg>
+      <div>
+        <div class="font-serif text-[21px] leading-[1.1] text-ink">Nexo</div>
+        <div class="text-[11px] tracking-[0.16em] uppercase text-gold mt-px">Consulting</div>
+      </div>
+    </div>
+    <nav class="hidden md:block">
+      <ul class="flex gap-9 text-[15px]">
+        <li><a href="#industrias" class="no-underline hover:text-forest">Industrias</a></li>
+        <li><a href="#servicios" class="no-underline hover:text-forest">Servicios</a></li>
+        <li><a href="#capacitacion" class="no-underline hover:text-forest">Capacitación</a></li>
+        <li><a href="#contacto" class="no-underline hover:text-forest">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  function initHeaderScroll() {
+    const header = document.getElementById("site-header");
+    if (!header) return;
+
+    let lastY = window.scrollY;
+
+    const onScroll = () => {
+      const y = window.scrollY;
+      const goingDown = y > lastY;
+      const pastHeader = y > header.offsetHeight;
+
+      if (goingDown && pastHeader) {
+        header.style.transform = "translateY(-100%)";
+      } else {
+        header.style.transform = "translateY(0)";
+      }
+
+      lastY = y;
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+
+  document.addEventListener("astro:page-load", initHeaderScroll);
+</script>

@@ -1,0 +1,61 @@
+---
+const services = [
+  {
+    number: "01",
+    name: "Diagnóstico y estrategia",
+    description: "Analizamos la planta y el negocio en conjunto para definir prioridades reales: qué frenar, qué sostener y hacia dónde crecer en los próximos 12 a 24 meses.",
+  },
+  {
+    number: "02",
+    name: "Dirección general y coaching ejecutivo",
+    description: "Acompañamos a dueños, gerentes generales y equipos directivos en la toma de decisiones, actuando como sparring en momentos de cambio, crisis o crecimiento.",
+  },
+  {
+    number: "03",
+    name: "Eficiencia operativa e industrial",
+    description: "Revisamos procesos de planta, logística y costos para reducir tiempos muertos y pérdidas, sin afectar la calidad ni la seguridad del trabajo.",
+  },
+  {
+    number: "04",
+    name: "Estructura financiera",
+    description: "Ordenamos flujo de caja, presupuestos y estructura de costos para que las decisiones se tomen con información confiable.",
+  },
+];
+---
+
+<section class="border-t border-line py-22" id="servicios">
+  <div class="mx-auto max-w-[1120px] px-8">
+    <div class="flex items-center gap-4 mb-14">
+      <span class="text-[13px] font-medium uppercase tracking-[0.12em] text-[#4a504c]">Servicios</span>
+      <div class="flex-1 h-px bg-line"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1.3fr_1fr] gap-10 items-start">
+      <h2 class="font-serif text-[46px] leading-[1.15] text-ink">
+        Decisiones que se convierten en dirección.
+      </h2>
+      <div>
+        <p class="text-[15px] leading-[1.6] text-[#4a504c]">
+          Trabajamos junto a organizaciones ambiciosas para transformar la complejidad en decisiones concretas y
+          sostenibles.
+        </p>
+        <div class="w-8 h-px bg-line mt-4"></div>
+      </div>
+    </div>
+
+    <div class="h-px bg-line mt-12 mb-12"></div>
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-6 lg:gap-x-0 gap-y-10">
+      {
+        services.map((service) => (
+          <div class="flex flex-col lg:px-8 first:lg:pl-0 last:lg:pr-0 lg:border-l lg:border-line first:lg:border-l-0">
+            <span class="text-[13px] font-semibold text-rust">{service.number}</span>
+            <h3 class="font-serif text-lg leading-snug text-ink mt-2 mb-2">{service.name}</h3>
+            <div class="w-8 h-px bg-line mb-4" />
+            <p class="text-[13px] leading-snug text-[#4a504c]">{service.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
