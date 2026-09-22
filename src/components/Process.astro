@@ -1,33 +1,149 @@
 ---
+const stages = [
+  {
+    number: "01",
+    title: "Diagnóstico",
+    description: "Entendemos el negocio a fondo: números, procesos y equipo.",
+    result: "Mapa de situación",
+  },
+  {
+    number: "02",
+    title: "Hoja de ruta",
+    description: "Priorizamos qué resolver primero y diseñamos un plan concreto.",
+    result: "Plan de acción",
+  },
+  {
+    number: "03",
+    title: "Ejecución",
+    description: "Acompañamos al equipo en la implementación, ajustando el plan según los resultados reales.",
+    result: "Implementación",
+  },
+  {
+    number: "04",
+    title: "Seguimiento",
+    description: "Medimos avances mes a mes y dejamos al equipo capacitado para sostener el cambio.",
+    result: "Capacidad instalada",
+  },
+];
 ---
 
-<section class="bg-sand border-t border-line py-22" id="proceso">
+<section class="border-t border-line bg-sand" id="proceso">
   <div class="mx-auto max-w-[1120px] px-8">
-    <div class="flex items-center gap-4 mb-12">
-      <span class="text-[15px] text-[#4a504c]">Cómo trabajamos</span>
-      <div class="flex-1 h-px bg-line"></div>
-    </div>
-    <div class="grid grid-cols-1 lg:grid-cols-4 lg:grid-rows-4 gap-8 lg:gap-x-8 lg:gap-y-4 mt-2">
-      <div class="lg:col-start-1 lg:row-start-1">
-        <div class="font-serif text-[22px] text-gold">i</div>
-        <h3 class="font-serif font-normal leading-[1.15] text-ink text-xl mt-3.5 mb-2.5">Diagnóstico</h3>
-        <p class="text-[15px] text-[#4a504c]">Entendemos el negocio a fondo: números, procesos y equipo, en las primeras dos semanas.</p>
+    <div class="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+      <div class="pt-20 pb-4 lg:py-0">
+        <div class="lg:sticky lg:top-28 lg:py-20">
+          <div class="flex items-center gap-4 mb-10 lg:mb-14">
+            <span class="text-[13px] font-medium uppercase tracking-[0.12em] text-[#4a504c]">Cómo trabajamos</span>
+            <div class="flex-1 h-px bg-line"></div>
+          </div>
+          <h2 class="font-serif font-normal leading-[1.1] text-ink text-[clamp(34px,4vw,44px)] max-w-[13ch]">
+            Una metodología para pasar de la incertidumbre a la ejecución.
+          </h2>
+          <p class="mt-6 text-[15px] leading-[1.6] max-w-[36ch] text-[#4a504c]">
+            Cuatro etapas conectadas que llevan a la organización del diagnóstico a un cambio sostenido en el tiempo.
+          </p>
+        </div>
       </div>
-      <div class="lg:col-start-2 lg:row-start-2">
-        <div class="font-serif text-[22px] text-rust">ii</div>
-        <h3 class="font-serif font-normal leading-[1.15] text-ink text-xl mt-3.5 mb-2.5">Hoja de ruta</h3>
-        <p class="text-[15px] text-[#4a504c]">Priorizamos qué resolver primero y diseñamos un plan concreto, con responsables y plazos.</p>
-      </div>
-      <div class="lg:col-start-3 lg:row-start-3">
-        <div class="font-serif text-[22px] text-blue">iii</div>
-        <h3 class="font-serif font-normal leading-[1.15] text-ink text-xl mt-3.5 mb-2.5">Ejecución</h3>
-        <p class="text-[15px] text-[#4a504c]">Acompañamos al equipo en la implementación, ajustando el plan según los resultados reales.</p>
-      </div>
-      <div class="lg:col-start-4 lg:row-start-4">
-        <div class="font-serif text-[22px] text-forest">iv</div>
-        <h3 class="font-serif font-normal leading-[1.15] text-ink text-xl mt-3.5 mb-2.5">Seguimiento</h3>
-        <p class="text-[15px] text-[#4a504c]">Medimos avances mes a mes y dejamos al equipo capacitado para sostener el cambio.</p>
+
+      <div class="relative">
+        <div class="absolute left-0 top-0 bottom-0 w-px bg-line" aria-hidden="true">
+          <div id="process-progress-fill" class="absolute left-0 top-0 w-px bg-forest-dark" style="height: 0%"></div>
+        </div>
+
+        <div class="flex flex-col">
+          {
+            stages.map((stage) => (
+              <div class="process-stage relative pl-10 lg:pl-14 min-h-[38vh] lg:min-h-[55vh] flex flex-col justify-center py-6">
+                <span class="process-dot absolute left-[-4.5px] top-1/2 -translate-y-1/2 w-[10px] h-[10px] rounded-full bg-line ring-4 ring-sand transition-colors duration-300" />
+                <span class="process-number block font-serif text-[15px] font-medium text-[#9aa39c] transition-colors duration-300">
+                  {stage.number}
+                </span>
+                <h3
+                  class="process-title mt-3 font-serif font-normal text-ink text-[clamp(28px,3.5vw,40px)] leading-[1.1] transition-opacity duration-500"
+                  style="opacity: 0.45"
+                >
+                  {stage.title}
+                </h3>
+                <p
+                  class="process-desc mt-4 max-w-[42ch] text-[15px] leading-[1.6] text-[#4a504c] transition-opacity duration-500"
+                  style="opacity: 0"
+                >
+                  {stage.description}
+                </p>
+                <div class="process-result mt-6 transition-opacity duration-500" style="opacity: 0">
+                  <span class="text-[12px] font-medium uppercase tracking-[0.12em] text-[#9aa39c]">Resultado</span>
+                  <p class="mt-1 text-[15px] text-ink">{stage.result}</p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  function initProcess() {
+    const section = document.getElementById("proceso");
+    const fill = document.getElementById("process-progress-fill");
+    if (!section || !fill) return;
+
+    const stages = Array.from(section.querySelectorAll(".process-stage"));
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function setActive(el, active) {
+      const title = el.querySelector(".process-title");
+      const desc = el.querySelector(".process-desc");
+      const result = el.querySelector(".process-result");
+      const number = el.querySelector(".process-number");
+      const dot = el.querySelector(".process-dot");
+      if (!title || !desc || !result || !number || !dot) return;
+
+      title.style.opacity = active ? "1" : "0.45";
+      desc.style.opacity = active ? "1" : "0";
+      result.style.opacity = active ? "1" : "0";
+      number.classList.toggle("text-forest-dark", active);
+      number.classList.toggle("text-[#9aa39c]", !active);
+      dot.classList.toggle("bg-forest-dark", active);
+      dot.classList.toggle("bg-line", !active);
+    }
+
+    if (reduceMotion) {
+      stages.forEach((el) => setActive(el, true));
+      fill.style.height = "100%";
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => setActive(entry.target, entry.isIntersecting));
+      },
+      { root: null, rootMargin: "-45% 0px -45% 0px", threshold: 0 },
+    );
+    stages.forEach((el) => observer.observe(el));
+
+    let ticking = false;
+    function updateFill() {
+      const rect = section.getBoundingClientRect();
+      const total = rect.height - window.innerHeight;
+      const scrolled = Math.min(Math.max(-rect.top, 0), Math.max(total, 0));
+      const progress = total > 0 ? scrolled / total : 0;
+      fill.style.height = `${progress * 100}%`;
+      ticking = false;
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        window.requestAnimationFrame(updateFill);
+        ticking = true;
+      }
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", updateFill);
+    updateFill();
+  }
+
+  document.addEventListener("astro:page-load", initProcess);
+</script>
