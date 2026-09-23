@@ -46,7 +46,7 @@ const industries = [
 ---
 
 <section class="relative overflow-hidden pt-16 pb-16" id="industrias">
-  <div class="hidden lg:block absolute right-0 top-10 bottom-24 w-8 bg-orange"></div>
+  <div class="hidden lg:block absolute right-0 top-10 bottom-24 w-8 bg-forest-dark"></div>
   <div class="mx-auto max-w-[1120px] px-8">
     <div class="flex items-center gap-4 mb-14">
       <span class="text-[13px] font-medium uppercase tracking-[0.12em] text-[#4a504c]">Industrias</span>
@@ -64,7 +64,7 @@ const industries = [
       {
         industries.map((industry) => (
           <div class={`flex flex-col lg:px-5 first:lg:pl-0 last:lg:pr-0 lg:border-l lg:border-r lg:border-line first:lg:border-l-0 last:lg:border-r-0 ${industry.offset}`}>
-            <span class="text-[13px] font-semibold text-orange">{industry.number}</span>
+            <span class="text-[13px] font-semibold text-forest-dark">{industry.number}</span>
             <h3 class="font-serif text-lg leading-snug text-ink mt-2 mb-2">{industry.name}</h3>
             <p class="text-[13px] leading-snug text-[#4a504c]">{industry.description}</p>
             <div class="w-8 h-px bg-line my-4" />
@@ -76,7 +76,7 @@ const industries = [
 
     <a
       href="#contacto"
-      class="mt-10 inline-flex items-center gap-2 text-[13px] font-medium uppercase tracking-[0.1em] text-ink hover:text-orange transition-colors"
+      class="mt-10 inline-flex items-center gap-2 text-[13px] font-medium uppercase tracking-[0.1em] text-ink hover:text-forest-darktransition-colors"
     >
       Ver todas las industrias
       <span aria-hidden="true">→</span>
